@@ -1,0 +1,52 @@
+body {
+	background-color: black;
+	color: white;
+	font-family: sans-serif;
+	margin: 0;
+	overflow: hidden;
+}
+#pw_as_container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#pw_header {
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+	margin-block: 10px;
+	user-select: none;
+}
+#grid {
+	flex: 1;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	overflow: hidden;
+	border-top: solid 5px;
+	padding-bottom: 0.3em;
+}
+.pokewood-member {
+	overflow: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-right: solid 5px;
+
+
+}
+.pokewood-member:nth-child(6n) {
+	border: none;
+}
+.pokewood-member > img {
+	max-height: 100%;
+	transition: opacity .3s;
+	cursor: pointer;
+}
+
+.pokewood-member[disabled] > img {
+	opacity: .1;
+}
+
+[hidden] {
+	display: none !important;
+}
