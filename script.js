@@ -22,7 +22,10 @@ class MemberControl {
 		this.$avatar.setAttribute('tabindex', '0');
 
 		this.$control.append(this.$avatar);
-		this.$avatar.addEventListener('click', () => this.Enabled = !this.Enabled);
+		this.$avatar.addEventListener('click', () => { 
+			this.Enabled = !this.Enabled;
+			this.$avatar.blur();
+		});
 		this.$avatar.addEventListener('keydown', (e) => {
 			if (e.code != 'Space' && e.code != 'Enter')
 				return; 
