@@ -21,28 +21,34 @@ body {
 	flex: 1;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	overflow: hidden;
+	overflow: visible;
 	border-top: solid 5px;
 	padding-bottom: 0.3em;
 }
 .pokewood-member {
-	overflow: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-right: solid 5px;
-
-
+	position: relative;
+	overflow: visible;
 }
 .pokewood-member:nth-child(6n) {
 	border: none;
 }
 .pokewood-member > img {
-	max-height: 100%;
-	transition: opacity .3s;
+	position: absolute;
+	height: 100%;
+	transition-property: opacity, height, width;
+	transition-duration: .3s;
+	/*transition: opacity .3s, height .3s, width .3s;*/
 	cursor: pointer;
+	bottom: 0;
 }
-
+.pokewood-member:not([disabled]):hover > img, .pokewood-member:not([disabled]) > img:focus {
+	height: 150%;
+	z-index: 999;
+}
 .pokewood-member[disabled] > img {
 	opacity: .1;
 }

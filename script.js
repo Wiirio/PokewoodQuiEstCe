@@ -19,9 +19,15 @@ class MemberControl {
 		this.$avatar.setAttribute('src', `./images/${member.code}.png`);
 		this.$avatar.setAttribute('alt', member.code);
 		this.$avatar.setAttribute('draggable', 'false');
+		this.$avatar.setAttribute('tabindex', '0');
 
 		this.$control.append(this.$avatar);
 		this.$avatar.addEventListener('click', () => this.Enabled = !this.Enabled);
+		this.$avatar.addEventListener('keydown', (e) => {
+			if (e.code != 'Space' && e.code != 'Enter')
+				return; 
+			this.Enabled = !this.Enabled
+		});
 	}
 }
 
